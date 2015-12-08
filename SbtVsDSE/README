@@ -1,0 +1,12 @@
+An example project for using Dse Analytics
+
+The application looks for DSE in DSE_HOME
+DSE_HOME should be the location such that DSE_HOME/bin/dse is a valid command
+
+build the application with 
+
+sbt package
+
+then run it using
+
+dse spark-submit target/scala-2.10/sbtvsdse_2.10-1.0.jar
