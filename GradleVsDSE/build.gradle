@@ -1,0 +1,20 @@
+group 'com.datastax'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'scala'
+
+sourceCompatibility = 1.5
+
+
+def DSE_HOME = (System.getenv("DSE_HOME") != null) ? System.getenv("DSE_HOME") : System.getenv("HOME")+"dse"
+
+def sparkClasspathStr = (DSE_HOME + "/bin/dse spark-classpath").execute().text.trim()
+def sparkClasspathJars = sparkClasspathStr.split(":").findAll{ it.endsWith(".jar") }
+
+dependencies {
+    compile files(sparkClasspathJars)
+}
+
+repositories {
+    mavenCentral()
+}
