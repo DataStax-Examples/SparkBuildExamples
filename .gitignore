@@ -1,7 +1,3 @@
-SparkBuildExamples*
-gradle*
-*/.gradle
 */build
 */target
-*/gradle
 .gradle

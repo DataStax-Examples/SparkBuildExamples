@@ -1,0 +1,33 @@
+group 'com.datastax.spark.example'
+version '0.1'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+def DSE_HOME = (System.getenv("DSE_HOME") != null) ? System.getenv("DSE_HOME") : System.getenv("HOME")+"dse"
+
+def sparkClasspathStr = (DSE_HOME + "/bin/dse spark-classpath").execute().text.trim()
+def sparkClasspathJars = sparkClasspathStr.split(":").findAll{ it.endsWith(".jar") }
+
+dependencies {
+    provided files(sparkClasspathJars)
+    // compile "your:dependecy:1.0.0"
+}
+
+jar {
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.provided).collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+}
