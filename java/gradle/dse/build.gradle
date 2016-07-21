@@ -1,0 +1,33 @@
+group 'com.datastax.spark.example'
+version '0.1'
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://datastax.artifactoryonline.com/datastax/public-repos/"
+    }
+}
+
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+// Please make sure that following DSE version matches your DSE cluster version.
+dependencies {
+    provided "com.datastax.dse:dse-spark-dependencies:5.0.1"
+    // compile "your:dependecy:1.0.0"
+}
+
+jar {
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.provided).collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+}
+

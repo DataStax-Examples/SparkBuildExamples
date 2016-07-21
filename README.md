@@ -1,36 +1,31 @@
 # Example projects for using DSE Analytics
 
 These are template projects that illustrate how to build Spark Application written in Java or Scala with 
-Maven, SBT or Gradle. Navigate to project that implements simple write-to-/read-from-Cassandra application 
-with language and build tool of your choice.
+Maven, SBT or Gradle. Navigate to project that implements simple write-to-/read-from-Cassandra 
+application with language and build tool of your choice.
 
 ## Dependencies
 
 Compiling Spark Applications depends on `Apache Spark` and optionally on `Spark Cassandra Connector` 
-jars. Projects `auto_classpath` and `simple` show two different ways of supplying these dependencies.
+jars. Projects `dse` and `oss` show two different ways of supplying these dependencies. 
 Both projects are built and executed with similar commands.
 
-### DSE installed
+### DSE 
 
-If DSE is installed on computer where Spark Application is going to be built, you can use `auto_classpath` 
-project which will automatically use DSE jar dependencies. All you need to do is set `DSE_HOME` environment 
-variable so that SBT (or Gradle) will know where to look for dependency jars. On Linux machines 
-use following command to set `DSE_HOME` (substitute <path to DSE> with location such that 
-`$DSE_HOME/bin/dse` is a valid command):
+If you are planning to execute your Spark Application on a DSE cluster, you can use `dse` project 
+template which will automatically download (and use during compilation) all jars available in DSE cluster. 
+Please mind DSE version specified in build file, it should should match the one in your cluster.
 
-`export DSE_HOME=<path to DSE>`
+### OSS
 
-### DSE not installed
-
-If there is no DSE installed on computer where Spark Application is going to be built, use `simple` 
-project where all dependencies have to be specified explicitly in `build.sbt` file. Please mind 
-dependencies versions, these should match the ones in execution environment.
+If you are planning to execute your Spark Application against Open Source Apache Spark and Open Source 
+Apache Cassandra, use `oss` project template where all dependencies have to be specified manually in 
+build files. Please mind dependencies versions, these should match the ones in your execution environment.
 
 ### Additional dependencies
 
 Prepared projects use extra plugins so additional dependencies can be included with your 
-application jar. All you need to do is add dependencies in build configuration file in commented section 
-called 'Your dependencies'.
+application's jar. All you need to do is add dependencies in build configuration file.
 
 ## Building & running
 
