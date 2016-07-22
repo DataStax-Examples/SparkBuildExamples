@@ -10,18 +10,29 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <!-- Please make sure that following dependencies have versions corresponding to the ones in your cluster. -->
+
+  <!--
+  Please make sure that following dependencies have versions corresponding to the ones in your cluster.
+  Note that spark-hive and spark-cassandra-connector should be provided with '&#45;&#45;packages' flag
+  to spark-submit command.
+-->
   <dependencies>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-core_2.10</artifactId>
-      <version>1.6.1</version>
+      <version>1.6.2</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_2.10</artifactId>
-      <version>1.6.1</version>
+      <version>1.6.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-hive_2.10</artifactId>
+      <version>1.6.2</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -30,7 +41,7 @@
       <version>1.6.0</version>
       <scope>provided</scope>
     </dependency>
-     <!-- Your dependencies, 'provided' are not included in jar -->
+    <!-- Your dependencies, 'provided' are not included in jar -->
   </dependencies>
 
   <build>

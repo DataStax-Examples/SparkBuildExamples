@@ -6,15 +6,20 @@ repositories {
     mavenCentral()
 }
 
+// The provided configuration behaves the same as the sbt "provided" keyword which will cause jars to be
+// excluded from assembled fat-jar
 configurations {
     provided
     compile.extendsFrom provided
 }
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
+// Note that spark-hive and spark-cassandra-connector should be provided with '--packages' flag to
+// spark-submit command.
 dependencies {
-    provided "org.apache.spark:spark-core_2.10:1.6.1"
-    provided "org.apache.spark:spark-sql_2.10:1.6.1"
+    provided "org.apache.spark:spark-core_2.10:1.6.2"
+    provided "org.apache.spark:spark-sql_2.10:1.6.2"
+    provided "org.apache.spark:spark-hive_2.10:1.6.2"
     provided "com.datastax.spark:spark-cassandra-connector_2.10:1.6.0"
     // compile "your:dependecy:1.0.0"
 }

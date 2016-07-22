@@ -9,6 +9,8 @@ repositories {
     }
 }
 
+// The provided configuration behaves the same as the sbt "provided" keyword which will cause jars to be
+// excluded from assembled fat-jar
 configurations {
     provided
     compile.extendsFrom provided

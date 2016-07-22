@@ -22,6 +22,9 @@ If you are planning to execute your Spark Application against Open Source Apache
 Apache Cassandra, use `oss` project template where all dependencies have to be specified manually in 
 build files. Please mind dependencies versions, these should match the ones in your execution environment.
 
+For additional info about version compatibility please refer to 
+[Version Compatibility Table](https://github.com/datastax/spark-cassandra-connector#version-compatibility)
+
 ### Additional dependencies
 
 Prepared projects use extra plugins so additional dependencies can be included with your 
@@ -31,18 +34,24 @@ application's jar. All you need to do is add dependencies in build configuration
 
 ### Sbt
 
-`sbt clean assembly`
-`dse spark-submit --class com.datastax.spark.example.scala.WriteRead target/scala-2.10/writeRead-assembly-0.1.jar`
+```
+sbt clean assembly
+dse spark-submit --class com.datastax.spark.example.scala.WriteRead target/scala-2.10/writeRead-assembly-0.1.jar
+```
 
 ### Gradle
 
-`gradle clean build`
-`dse spark-submit --class com.datastax.spark.example.scala.WriteRead build/libs/writeRead-0.1.jar`
+```
+gradle clean jar
+dse spark-submit --class com.datastax.spark.example.scala.WriteRead build/libs/writeRead-0.1.jar
+```
 
 ### Maven
 
-`mvn clean package`
-`dse spark-submit --class com.datastax.spark.example.scala.WriteRead target/writeRead-0.1-dep.jar`
+```
+mvn clean package
+dse spark-submit --class com.datastax.spark.example.scala.WriteRead target/writeRead-0.1-dep.jar
+```
 
 
 

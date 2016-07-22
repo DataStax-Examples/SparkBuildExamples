@@ -13,4 +13,3 @@ libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % "5.0.1" %
 
 //Your dependencies
 //libraryDependencies += "com.github.scopt" %% "scopt" % "3.2.0"
-

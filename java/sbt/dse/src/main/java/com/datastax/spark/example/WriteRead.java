@@ -1,23 +1,21 @@
 package com.datastax.spark.example;
 
+import com.datastax.driver.core.Session;
+import com.datastax.spark.connector.cql.CassandraConnector;
+import com.datastax.spark.connector.cql.CassandraConnectorConf;
+import com.google.common.collect.ImmutableMap;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.hive.HiveContext;
+import scala.Tuple2;
+import scala.runtime.AbstractFunction1;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import com.datastax.driver.core.Session;
-import com.datastax.spark.connector.cql.CassandraConnector;
-import com.datastax.spark.connector.cql.CassandraConnectorConf;
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaRDD;
-import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.Row;
-import org.apache.spark.sql.cassandra.CassandraSQLContext;
-import scala.Tuple2;
-import scala.runtime.AbstractFunction1;
-
-import static com.datastax.spark.connector.japi.CassandraJavaUtil.javaFunctions;
-import static com.datastax.spark.connector.japi.CassandraJavaUtil.mapRowToTuple;
-import static com.datastax.spark.connector.japi.CassandraJavaUtil.mapTupleToRow;
+import static com.datastax.spark.connector.japi.CassandraJavaUtil.*;
 
 public class WriteRead
 {
@@ -39,7 +37,7 @@ public class WriteRead
 
     // A SparkContext
     JavaSparkContext jsc = new JavaSparkContext(conf);
-    CassandraSQLContext sqlContext = new CassandraSQLContext(jsc.sc());
+    HiveContext hiveContext = new HiveContext(jsc.sc());
 
     // Write some data to C*
     List<Integer> integers = IntStream.range(1, 10)
@@ -58,15 +56,19 @@ public class WriteRead
       .cassandraTable("ks", "kv", mapRowToTuple(Integer.class, Integer.class))
       .collect();
 
-    // Read Data Using the Sql Context
-    sqlContext.setKeyspace("ks");
-    List<Tuple2<Integer, Integer>> sqlReadData = sqlContext.sql("SELECT * FROM kv").javaRDD()
+    // Read Data Using the Hive Context
+    List<Tuple2<Integer, Integer>> sqlReadData = hiveContext
+      .read()
+      .format("org.apache.spark.sql.cassandra")
+      .options(ImmutableMap.of("table", "kv", "keyspace", "ks"))
+      .load()
+      .javaRDD()
       .map(row -> new Tuple2<>(row.getInt(0), row.getInt(1))).collect();
 
     System.out.println("Data Read Via Spark Context");
     scReadData.forEach(System.out::println);
     System.out.println("---------------------------");
-    System.out.println("Data Read Via Sql Context");
+    System.out.println("Data Read Via Hive Context");
     sqlReadData.forEach(System.out::println);
 
     jsc.stop();
