@@ -17,6 +17,9 @@ import java.util.stream.IntStream;
 
 import static com.datastax.spark.connector.japi.CassandraJavaUtil.*;
 
+
+// For DSE it is not necessary to set connection parameters for spark.master (since it will be done
+// automatically)
 public class WriteRead
 {
   public static void main(String[] args)
