@@ -1,7 +1,6 @@
-SparkBuildExamples*
-gradle*
-*/.gradle
 */build
 */target
-*/gradle
 .gradle
+.idea
+metastore_db
+derby.log
