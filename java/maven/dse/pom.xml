@@ -19,6 +19,16 @@
       <scope>provided</scope>
     </dependency>
     <!-- Your dependencies, 'provided' are not included in jar -->
+    <!--<dependency>-->
+      <!--<groupId>org.apache.commons</groupId>-->
+      <!--<artifactId>commons-math3</artifactId>-->
+      <!--<version>3.6.1</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+      <!--<groupId>com.google.guava</groupId>-->
+      <!--<artifactId>guava</artifactId>-->
+      <!--<version>11.0</version>-->
+    <!--</dependency>-->
   </dependencies>
 
   <repositories>
@@ -40,18 +50,23 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <descriptor>src/assembly/dep.xml</descriptor>
-        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.4.3</version>
         <executions>
           <execution>
-            <id>create-archive</id>
             <phase>package</phase>
             <goals>
-              <goal>single</goal>
+              <goal>shade</goal>
             </goals>
+            <configuration>
+              <!--<relocations>-->
+                <!--<relocation>-->
+                <!--<pattern>com.google</pattern>-->
+                <!--<shadedPattern>shaded.com.google</shadedPattern>-->
+                <!--</relocation>-->
+              <!--</relocations>-->
+            </configuration>
           </execution>
         </executions>
       </plugin>
