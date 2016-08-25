@@ -13,8 +13,8 @@ libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % "5.0.1" %
 
 //Your dependencies
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
-//libraryDependencies += "com.google.guava" % "guava" % "11.0"
+//libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
 
 //assemblyShadeRules in assembly := Seq(
-//  ShadeRule.rename("com.google.**" -> "shaded.com.google.@1").inAll
+//  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
 //)

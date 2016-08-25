@@ -34,7 +34,7 @@ configurations {
 dependencies {
     provided "com.datastax.dse:dse-spark-dependencies:5.0.1"
 //    assembly "org.apache.commons:commons-math3:3.6.1"
-//    assembly "com.google.guava:guava:11.0"
+//    assembly "org.apache.commons:commons-csv:1.0"
 }
 
 shadowJar {
@@ -42,5 +42,5 @@ shadowJar {
 }
 
 //shadowJar {
-//  relocate 'com.google', 'shaded.com.google'
+//  relocate 'org.apache.commons.csv', 'shaded.org.apache.commons.csv'
 //}

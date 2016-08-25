@@ -26,9 +26,9 @@
       <!--<version>3.6.1</version>-->
     <!--</dependency>-->
     <!--<dependency>-->
-      <!--<groupId>com.google.guava</groupId>-->
-      <!--<artifactId>guava</artifactId>-->
-      <!--<version>11.0</version>-->
+      <!--<groupId>org.apache.commons</groupId>-->
+      <!--<artifactId>commons-csv</artifactId>-->
+      <!--<version>1.0</version>-->
     <!--</dependency>-->
   </dependencies>
 
@@ -71,8 +71,8 @@
             <configuration>
               <!--<relocations>-->
                 <!--<relocation>-->
-                  <!--<pattern>com.google</pattern>-->
-                  <!--<shadedPattern>shaded.com.google</shadedPattern>-->
+                  <!--<pattern>org.apache.commons.csv</pattern>-->
+                  <!--<shadedPattern>shaded.org.apache.commons.csv</shadedPattern>-->
                 <!--</relocation>-->
               <!--</relocations>-->
             </configuration>
