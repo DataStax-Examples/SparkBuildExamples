@@ -10,4 +10,9 @@ resolvers += "DataStax Repo" at "https://datastax.artifactoryonline.com/datastax
 libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % "5.0.1" % "provided"
 
 //Your dependencies
-//libraryDependencies += "com.github.scopt" %% "scopt" % "3.2.0"
+//libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
+//libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
+
+//assemblyShadeRules in assembly := Seq(
+//  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
+//)

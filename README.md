@@ -42,7 +42,7 @@ dse spark-submit --class com.datastax.spark.example.scala.WriteRead target/scala
 ### Gradle
 
 ```
-gradle clean jar
+gradle clean shadowJar
 dse spark-submit --class com.datastax.spark.example.scala.WriteRead build/libs/writeRead-0.1.jar
 ```
 

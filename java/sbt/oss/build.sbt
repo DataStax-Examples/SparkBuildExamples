@@ -19,4 +19,9 @@ libraryDependencies ++= Seq(
 )
 
 //Your dependencies
-//libraryDependencies += "com.github.scopt" %% "scopt" % "3.2.0"
+//libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
+//libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
+
+//assemblyShadeRules in assembly := Seq(
+//  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
+//)
