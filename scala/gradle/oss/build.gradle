@@ -8,6 +8,9 @@ repositories {
 
 def sparkVersion = "1.6.2"
 def connectorVersion = "1.6.0"
+def scalaVersion = "2.10"
+def scalaTestVersion = "3.0.0"
+def cassandraVersion = "3.0.2"
 
 // The provided configuration behaves the same as the sbt "provided" keyword which will cause jars to be
 // excluded from assembled fat-jar
@@ -19,11 +22,16 @@ configurations {
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
 // Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
 dependencies {
-    provided "org.apache.spark:spark-core_2.10:$sparkVersion"
-    provided "org.apache.spark:spark-sql_2.10:$sparkVersion"
-    provided "org.apache.spark:spark-hive_2.10:$sparkVersion"
-    provided "com.datastax.spark:spark-cassandra-connector_2.10:$connectorVersion"
+    provided "org.apache.spark:spark-core_$scalaVersion:$sparkVersion"
+    provided "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
+    provided "org.apache.spark:spark-hive_$scalaVersion:$sparkVersion"
+    provided "com.datastax.spark:spark-cassandra-connector_$scalaVersion:$connectorVersion"
     // compile "your:dependecy:1.0.0"
+
+    //Test Dependencies
+    testCompile "com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion"
+    testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
+    testCompile "org.apache.cassandra:cassandra-all:$cassandraVersion"
 }
 
 jar {

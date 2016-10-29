@@ -14,12 +14,21 @@ repositories {
 configurations {
     provided
     compile.extendsFrom provided
+    testCompile.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
 }
+
+def scalaVersion = "2.10"
+def connectorVersion = "1.6.0"
+def scalaTestVersion = "3.0.0"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 dependencies {
-    provided "com.datastax.dse:dse-spark-dependencies:5.0.1"
+    provided "com.datastax.dse:dse-spark-dependencies:5.0.1" exclude group: 'org.slf4j', module: 'slf4j-log4j12'
     // compile "your:dependecy:1.0.0"
+
+    //Test Dependencies
+    testCompile "com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion"
+    testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
 }
 
 jar {
