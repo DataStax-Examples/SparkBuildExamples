@@ -22,10 +22,11 @@ libraryDependencies += (
 //for the version of the Spark Cassandra Connector in use.
 val scalaTestVersion = "3.0.0"
 val connectorVersion = "1.6.0"
+
 libraryDependencies ++= Seq(
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test"
-).map(_.exclude("org.slf4j","slf4j-log4j12"))  // Excluded to allow for Cassandra to run embedded
+).map(_.exclude("org.slf4j","log4j-over-slf4j"))  // Excluded to allow for Cassandra to run embedded
 
 //Forking is required for the Embedded Cassandra
 fork in Test := true

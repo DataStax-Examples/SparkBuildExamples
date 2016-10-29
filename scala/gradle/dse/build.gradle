@@ -27,14 +27,22 @@ configurations {
 configurations {
     provided
     compile.extendsFrom provided
+    testCompile.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
 }
 
-// Please make sure that following dependencies have versions corresponding to the ones in your cluster.
-// Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
+def scalaVersion = "2.10"
+def connectorVersion = "1.6.0"
+def scalaTestVersion = "3.0.0"
+
+// Please make sure that following DSE version matches your DSE cluster version.
 dependencies {
-    provided "com.datastax.dse:dse-spark-dependencies:5.0.1"
-//    assembly "org.apache.commons:commons-math3:3.6.1"
-//    assembly "org.apache.commons:commons-csv:1.0"
+    provided "com.datastax.dse:dse-spark-dependencies:5.0.1" exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+//  assembly "org.apache.commons:commons-math3:3.6.1"
+//  assembly "org.apache.commons:commons-csv:1.0"
+
+    //Test Dependencies
+    testCompile "com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion"
+    testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
 }
 
 shadowJar {
