@@ -9,13 +9,14 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <dse.version>5.0.4</dse.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.datastax.dse</groupId>
       <artifactId>dse-spark-dependencies</artifactId>
-      <version>5.0.1</version>
+      <version>${dse.version}</version>
       <scope>provided</scope>
     </dependency>
     <!-- Your dependencies, 'provided' are not included in jar -->

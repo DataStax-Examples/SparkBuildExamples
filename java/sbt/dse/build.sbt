@@ -8,8 +8,11 @@ autoScalaLibrary := false
 
 resolvers += "DataStax Repo" at "https://datastax.artifactoryonline.com/datastax/public-repos/"
 
+val dseVersion = "5.0.4"
+
 // Please make sure that following DSE version matches your DSE cluster version.
-libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % "5.0.1" % "provided"
+// SBT 0.13.13 or greater required because of a dependency resolution bug
+libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided"
 
 //Your dependencies
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"

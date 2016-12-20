@@ -62,6 +62,19 @@ Notes:
 1. The above command example are for DSE. To run with open source Spark, use `spark-submit` instead
 2. Also see included example script [BuildTestAll.sh](BuildTestAll.sh) which runs all combinations
 
+
+## Running Integrated Tests
+
+Integrated tests have been set up under a `test` task in each build system. To run
+the tests, invoke the build system and then launch `test`. These tests demonstrate
+how to run integrated embedded Cassandra as well as Local Spark from within your testing
+environment.
+
+Currently only Scala Testing examples are provided.
+
+These tests should also function inside IDEs that are configured with the ability to run
+the build system's tests.
+
 ## Support
 
 The code, examples, and snippets provided in this repository are not "Supported Software" under any DataStax subscriptions or other agreements.

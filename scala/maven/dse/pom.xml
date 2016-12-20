@@ -9,17 +9,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <dse.version>5.0.4</dse.version>
     <scala.version>2.10.6</scala.version>
     <scala.main.version>2.10</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
     <connector.version>1.6.0</connector.version>
+    <junit.version>4.12</junit.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.datastax.dse</groupId>
       <artifactId>dse-spark-dependencies</artifactId>
-      <version>5.0.1</version>
+      <version>${dse.version}</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -55,6 +57,12 @@
       <groupId>org.scalatest</groupId>
       <artifactId>scalatest_${scala.main.version}</artifactId>
       <version>${scalatest.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

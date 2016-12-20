@@ -12,6 +12,7 @@ val connectorVersion = "1.6.0"
 
 val cassandraVersion = "3.0.2"
 val scalaTestVersion = "3.0.0"
+val jUnitVersion = "4.12"
 
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
@@ -24,7 +25,8 @@ libraryDependencies ++= Seq(
   //Test Dependencies
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
-  "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test"
+  "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
+  "junit" % "junit" % jUnitVersion % "test"
 ).map(_.exclude("org.slf4j","log4j-over-slf4j"))  // Excluded to allow for Cassandra to run embedded
 
 //Forking is required for the Embedded Cassandra

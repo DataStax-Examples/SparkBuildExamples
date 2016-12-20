@@ -13,8 +13,7 @@ repositories {
     }
 }
 
-def sparkVersion = "1.6.2"
-def connectorVersion = "1.6.0"
+def dseVersion = "5.0.4"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar
 configurations {
@@ -32,7 +31,7 @@ configurations {
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
 // Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
 dependencies {
-    provided "com.datastax.dse:dse-spark-dependencies:5.0.1"
+    provided "com.datastax.dse:dse-spark-dependencies:$dseVersion"
 //    assembly "org.apache.commons:commons-math3:3.6.1"
 //    assembly "org.apache.commons:commons-csv:1.0"
 }
