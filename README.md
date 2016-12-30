@@ -14,9 +14,13 @@ projects are built and executed with similar commands.
 ### DSE
 
 If you are planning to execute your Spark Application on a DSE cluster, you can use the `dse`
-project  template which will automatically download (and use during compilation) all jars available
-in the DSE cluster.  Please mind the DSE version specified in the build file; it should should match
+project template which will automatically download (and use during compilation) all jars available
+in the DSE cluster. Please mind the DSE version specified in the build file; it should should match
 the one in your cluster.
+
+Please note that DSE projects templates are meant to be built with `sbt` 0.13.13 or newer. In case of
+unresolved dependencies errors, please update `sbt` and than clean `ivy` cache (with
+`rm ~/.ivy2/cache/com.datastax.dse/dse-spark-dependencies/` command)
 
 ### OSS
 
