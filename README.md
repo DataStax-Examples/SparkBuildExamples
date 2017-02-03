@@ -43,7 +43,7 @@ application's jar. All you need to do is add dependencies in the build configura
 
 Task         | Command
 -------------|------------
-build        | `sbt clean assembly`
+build        | `sbt assembly`
 run (Scala)  | `dse spark-submit --class com.datastax.spark.example.WriteRead target/scala-2.10/writeRead-assembly-0.1.jar`
 run (Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead target/writeRead-assembly-0.1.jar`
 
@@ -51,14 +51,14 @@ run (Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead ta
 
 Task                | Command
 --------------------|------------
-build               | `sbt clean assembly`
+build               | `gradle build`
 run (Scala, Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead build/libs/writeRead-0.1-all.jar`
 
 ### Maven
 
 Task                | Command
 --------------------|------------
-build               | `sbt clean assembly`
+build               | `mvn package`
 run (Scala, Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead target/writeRead-0.1.jar`
 
 Notes:
