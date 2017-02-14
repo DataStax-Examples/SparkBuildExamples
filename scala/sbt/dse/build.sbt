@@ -16,19 +16,22 @@ libraryDependencies += (
   "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided" excludeAll (
       ExclusionRule("org.slf4j","slf4j-log4j12"),
       ExclusionRule("org.mortbay.jetty"),
-      ExclusionRule("javax.servlet")
+      ExclusionRule("javax.servlet"),
+      ExclusionRule("org.apache.cassandra")
     )
   )
 
 // Test Dependencies
-//The 'test/resources' Directory in  should match the resources directory in the `it` directory
-//for the version of the Spark Cassandra Connector in use.
+// The 'test/resources' Directory in should match the resources directory in the `it` directory
+// for the version of the Spark Cassandra Connector in use.
 val scalaTestVersion = "3.0.0"
 val connectorVersion = "1.6.0"
 val jUnitVersion = "4.12"
+val cassandraVersion = "3.0.2"
 
 libraryDependencies ++= Seq(
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
+  "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "junit" % "junit" % "4.12"
 

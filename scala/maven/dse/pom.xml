@@ -14,6 +14,7 @@
     <scala.main.version>2.10</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
     <connector.version>1.6.0</connector.version>
+    <cassandra.version>3.0.2</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>
 
@@ -30,6 +31,10 @@
         </exclusion>
         <exclusion>
           <groupId>javax.servlet</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.cassandra</groupId>
           <artifactId>*</artifactId>
         </exclusion>
       </exclusions>
@@ -63,6 +68,12 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cassandra</groupId>
+      <artifactId>cassandra-all</artifactId>
+      <version>${cassandra.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
