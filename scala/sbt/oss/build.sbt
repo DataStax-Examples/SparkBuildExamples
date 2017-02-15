@@ -2,10 +2,10 @@ name := "writeRead"
 
 version := "0.1"
 
-scalaVersion := "2.10.6"
+scalaVersion := "2.11.8"
 
-val sparkVersion = "1.6.2"
-val connectorVersion = "1.6.0"
+val sparkVersion = "2.0.0"
+val connectorVersion = "2.0.0-M3"
 //The 'test/resources' Directory in  should match the resources directory in the `it` directory
 //for the version of the Spark Cassandra Connector in use.
 
@@ -22,12 +22,14 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-hive" % sparkVersion % "provided",
   "com.datastax.spark" %% "spark-cassandra-connector" % connectorVersion % "provided",
+
   //Test Dependencies
-  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
+  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test"
+    exclude("com.datastax.cassandra", "cassandra-driver-core"),
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "junit" % "junit" % jUnitVersion % "test"
-).map(_.exclude("org.slf4j","log4j-over-slf4j"))  // Excluded to allow for Cassandra to run embedded
+).map(_.exclude("org.slf4j", "log4j-over-slf4j"))  // Excluded to allow for Cassandra to run embedded
 
 //Forking is required for the Embedded Cassandra
 fork in Test := true
