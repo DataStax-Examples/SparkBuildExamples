@@ -4,6 +4,7 @@ import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.sql.SparkSession
 
 
 // For DSE it is not necessary to set connection parameters for spark.master (since it will be done
@@ -12,6 +13,11 @@ object WriteReadDF extends App {
 
   val conf = new SparkConf()
     .setAppName("Datastax Scala example")
+
+  val spark = SparkSession.builder
+    .appName("Datastax Scala DF example")
+    .getOrCreate
+
 
   CassandraConnector(conf).withSessionDo { session =>
     session.execute(
@@ -46,5 +52,6 @@ object WriteReadDF extends App {
   sqlReadData.foreach(println)
 
   sc.stop()
+  spark.stop
   sys.exit(0)
 }
