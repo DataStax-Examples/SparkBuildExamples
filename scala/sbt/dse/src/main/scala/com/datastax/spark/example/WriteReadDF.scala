@@ -11,13 +11,14 @@ import org.apache.spark.sql.SparkSession
 // automatically)
 object WriteReadDF extends App {
 
-  val conf = new SparkConf()
-    .setAppName("Datastax Scala example")
+//  val conf = new SparkConf()
+//    .setAppName("Datastax Scala example")
 
   val spark = SparkSession.builder
     .appName("Datastax Scala DF example")
     .getOrCreate
 
+  val conf = spark.sparkContext.SparkConf
 
   CassandraConnector(conf).withSessionDo { session =>
     session.execute(
