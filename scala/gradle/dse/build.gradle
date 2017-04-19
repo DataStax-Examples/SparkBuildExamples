@@ -32,8 +32,8 @@ def dseVersion = "5.1.0"
 
 def scalaVersion = "2.11"
 def scalaTestVersion = "3.0.0"
-def connectorVersion = "2.0.0-M3"
-def cassandraVersion = "3.0.2"
+def connectorVersion = "2.0.1"
+def cassandraVersion = "3.2"
 def jUnitVersion = "4.12"
 
 // Please make sure that following DSE version matches your DSE cluster version.

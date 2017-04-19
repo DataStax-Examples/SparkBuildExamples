@@ -25,9 +25,9 @@ libraryDependencies += (
 // The 'test/resources' Directory in should match the resources directory in the `it` directory
 // for the version of the Spark Cassandra Connector in use.
 val scalaTestVersion = "3.0.0"
-val connectorVersion = "2.0.0-M3"
+val connectorVersion = "2.0.1"
 val jUnitVersion = "4.12"
-val cassandraVersion = "3.0.2"
+val cassandraVersion = "3.2"
 
 libraryDependencies ++= Seq(
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
