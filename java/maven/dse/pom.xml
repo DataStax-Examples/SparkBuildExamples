@@ -18,6 +18,16 @@
       <artifactId>dse-spark-dependencies</artifactId>
       <version>${dse.version}</version>
       <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.datastax.dse</groupId>
+          <artifactId>dse-java-driver-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.solr</groupId>
+          <artifactId>solr-solrj</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- Your dependencies, 'provided' are not included in jar -->
     <!--<dependency>-->
@@ -30,6 +40,16 @@
       <!--<artifactId>commons-csv</artifactId>-->
       <!--<version>1.0</version>-->
     <!--</dependency>-->
+    <dependency>
+      <groupId>com.datastax.dse</groupId>
+      <artifactId>dse-java-driver-core</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-solrj</artifactId>
+      <version>6.0.1</version>
+    </dependency>
   </dependencies>
 
   <repositories>

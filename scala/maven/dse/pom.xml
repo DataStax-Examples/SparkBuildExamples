@@ -33,6 +33,14 @@
           <groupId>org.apache.cassandra</groupId>
           <artifactId>*</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>com.datastax.dse</groupId>
+          <artifactId>dse-java-driver-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.apache.solr</groupId>
+          <artifactId>solr-solrj</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
     <!-- Your dependencies, 'provided' are not included in jar -->
@@ -46,7 +54,16 @@
       <!--<artifactId>commons-csv</artifactId>-->
       <!--<version>1.0</version>-->
     <!--</dependency>-->
-
+    <dependency>
+      <groupId>com.datastax.dse</groupId>
+      <artifactId>dse-java-driver-core</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.solr</groupId>
+      <artifactId>solr-solrj</artifactId>
+      <version>6.0.1</version>
+    </dependency>
     <!-- Test Dependencies -->
     <dependency>
       <groupId>com.datastax.spark</groupId>
