@@ -2,6 +2,7 @@ package com.datastax.spark.example
 
 
 import com.datastax.spark.connector._
+import com.datastax.spark.connector.embedded._
 import com.datastax.spark.connector.cql.CassandraConnector
 import com.datastax.spark.connector.embedded.{EmbeddedCassandra, SparkTemplate}
 import org.junit.runner.RunWith
@@ -19,7 +20,7 @@ class WriteReadSpec extends FlatSpec with EmbeddedCassandra with SparkTemplate w
   override def clearCache(): Unit = CassandraConnector.evictCache()
 
   //Sets up CassandraConfig and SparkContext
-  useCassandraConfig(Seq("cassandra-default.yaml.template"))
+  useCassandraConfig(Seq(YamlTransformations.Default))
   useSparkConf(defaultConf)
 
   val connector = CassandraConnector(defaultConf)
