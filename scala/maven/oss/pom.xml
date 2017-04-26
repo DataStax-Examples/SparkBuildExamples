@@ -13,7 +13,7 @@
     <scala.main.version>2.10</scala.main.version>
     <spark.version>1.6.2</spark.version>
     <scalatest.version>3.0.0</scalatest.version>
-    <connector.version>1.6.2</connector.version>
+    <connector.version>1.6.3</connector.version>
     <cassandra.version>3.0.2</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>

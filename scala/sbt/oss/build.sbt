@@ -5,7 +5,7 @@ version := "0.1"
 scalaVersion := "2.10.6"
 
 val sparkVersion = "1.6.2"
-val connectorVersion = "1.6.2"
+val connectorVersion = "1.6.3"
 //The 'test/resources' Directory in  should match the resources directory in the `it` directory
 //for the version of the Spark Cassandra Connector in use.
 
