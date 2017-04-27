@@ -10,7 +10,7 @@ repositories {
     mavenCentral()
 }
 
-def sparkVersion = "1.6.1"
+def sparkVersion = "1.6.2"
 def connectorVersion = "1.6.0"
 def scalaVersion = "2.10"
 def scalaTestVersion = "3.0.0"

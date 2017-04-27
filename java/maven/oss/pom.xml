@@ -9,7 +9,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spark.version>1.6.1</spark.version>
+    <spark.version>1.6.2</spark.version>
     <connector.version>1.6.0</connector.version>
   </properties>
 
