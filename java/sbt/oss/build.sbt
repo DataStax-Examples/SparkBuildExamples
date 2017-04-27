@@ -6,7 +6,7 @@ crossPaths := false
 
 autoScalaLibrary := false
 
-val sparkVersion = "1.6.2"
+val sparkVersion = "1.6.1"
 val connectorVersion = "1.6.0"
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.

@@ -7,7 +7,7 @@ scalaVersion := "2.10.6"
 
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "5.0.4"
+val dseVersion = "5.0.0"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // Exclusions are solely for running integrated testing
