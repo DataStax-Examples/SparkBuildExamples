@@ -9,11 +9,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dse.version>5.0.7</dse.version>
+    <dse.version>5.0.8</dse.version>
     <scala.version>2.10.6</scala.version>
     <scala.main.version>2.10</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
-    <connector.version>1.6.4</connector.version>
+    <connector.version>1.6.5</connector.version>
+    <cassandra.version>3.0.2</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>
 
@@ -63,6 +64,12 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.cassandra</groupId>
+      <artifactId>cassandra-all</artifactId>
+      <version>${cassandra.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
