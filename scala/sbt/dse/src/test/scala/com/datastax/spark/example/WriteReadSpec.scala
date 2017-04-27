@@ -21,6 +21,7 @@ class WriteReadSpec extends FlatSpec with EmbeddedCassandra with SparkTemplate w
   //Sets up CassandraConfig and SparkContext
   useCassandraConfig(Seq("cassandra-default.yaml.template"))
   useSparkConf(defaultConf)
+  Cleanup
 
   val connector = CassandraConnector(defaultConf)
   val ksName = "test"
