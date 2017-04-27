@@ -11,7 +11,7 @@ repositories {
 }
 
 def sparkVersion = "1.6.3"
-def connectorVersion = "1.6.4"
+def connectorVersion = "1.6.5"
 def scalaVersion = "2.10"
 def scalaTestVersion = "3.0.0"
 def cassandraVersion = "3.0.2"
