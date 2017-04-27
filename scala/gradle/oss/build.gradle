@@ -11,7 +11,7 @@ repositories {
 }
 
 def sparkVersion = "1.6.2"
-def connectorVersion = "1.6.0"
+def connectorVersion = "1.6.2"
 def scalaVersion = "2.10"
 def scalaTestVersion = "3.0.0"
 def cassandraVersion = "3.0.2"
@@ -41,9 +41,13 @@ dependencies {
 //  assembly "org.apache.commons:commons-csv:1.0"
 
     //Test Dependencies
-    testCompile "com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion"
+    testCompile ("com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion") {
+        exclude group: 'com.datastax.cassandra', module: 'cassandra-driver-core'
+    }
     testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
-    testCompile "org.apache.cassandra:cassandra-all:$cassandraVersion"
+    testCompile ("org.apache.cassandra:cassandra-all:$cassandraVersion") {
+        exclude group: 'org.slf4j', module: 'log4j-over-slf4j'  // Excluded to allow for Cassandra to run embedded
+    }
     testCompile "junit:junit:$jUnitVersion"
 }
 

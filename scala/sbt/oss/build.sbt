@@ -5,7 +5,7 @@ version := "0.1"
 scalaVersion := "2.10.6"
 
 val sparkVersion = "1.6.2"
-val connectorVersion = "1.6.0"
+val connectorVersion = "1.6.2"
 //The 'test/resources' Directory in  should match the resources directory in the `it` directory
 //for the version of the Spark Cassandra Connector in use.
 
@@ -23,7 +23,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-hive" % sparkVersion % "provided",
   "com.datastax.spark" %% "spark-cassandra-connector" % connectorVersion % "provided",
   //Test Dependencies
-  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
+  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test"
+    exclude("com.datastax.cassandra", "cassandra-driver-core"),
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "junit" % "junit" % jUnitVersion % "test"
