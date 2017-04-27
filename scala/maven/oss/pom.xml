@@ -13,7 +13,7 @@
     <scala.main.version>2.10</scala.main.version>
     <spark.version>1.6.2</spark.version>
     <scalatest.version>3.0.0</scalatest.version>
-    <connector.version>1.6.0</connector.version>
+    <connector.version>1.6.2</connector.version>
     <cassandra.version>3.0.2</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>
@@ -70,6 +70,12 @@
       <artifactId>spark-cassandra-connector-embedded_${scala.main.version}</artifactId>
       <version>${connector.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>com.datastax.cassandra</groupId>
+          <artifactId>cassandra-driver-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.scalatest</groupId>
@@ -88,6 +94,13 @@
       <artifactId>cassandra-all</artifactId>
       <version>${cassandra.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <!-- Excluded to allow for Cassandra to run embedded -->
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>log4j-over-slf4j</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <!-- Force Guava 18 on Test CP, Required for Cassandra -->
     <dependency>
