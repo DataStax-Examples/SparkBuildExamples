@@ -6,8 +6,8 @@ crossPaths := false
 
 autoScalaLibrary := false
 
-val sparkVersion = "1.6.2"
-val connectorVersion = "1.6.3"
+val sparkVersion = "1.6.3"
+val connectorVersion = "1.6.4"
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
 // Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
