@@ -8,8 +8,8 @@ autoScalaLibrary := false
 
 scalaVersion := "2.11.8"
 
-val sparkVersion = "2.0.0"
-val connectorVersion = "2.0.1"
+val sparkVersion = "2.0.2"
+val connectorVersion = "2.0.2"
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
 // Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
