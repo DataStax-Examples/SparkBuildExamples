@@ -35,7 +35,7 @@
   <repositories>
     <repository>
       <id>DataStax-Repo</id>
-      <url>https://datastax.artifactoryonline.com/datastax/public-repos/</url>
+      <url>https://repo.datastax.com/public-repos/</url>
     </repository>
   </repositories>
 

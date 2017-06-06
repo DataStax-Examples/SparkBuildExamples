@@ -6,7 +6,7 @@ crossPaths := false
 
 autoScalaLibrary := false
 
-resolvers += "DataStax Repo" at "https://datastax.artifactoryonline.com/datastax/public-repos/"
+resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
 val dseVersion = "5.0.4"
 
