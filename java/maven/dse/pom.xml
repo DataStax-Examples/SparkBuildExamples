@@ -55,7 +55,7 @@
   <repositories>
     <repository>
       <id>DataStax-Repo</id>
-      <url>https://datastax.artifactoryonline.com/datastax/public-repos/</url>
+      <url>https://datastax.jfrog.io/datastax/public-repos/</url>
     </repository>
   </repositories>
 

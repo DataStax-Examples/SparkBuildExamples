@@ -9,7 +9,7 @@ version '0.1'
 repositories {
     mavenCentral()
     maven {
-        url "https://datastax.artifactoryonline.com/datastax/public-repos/"
+        url "https://datastax.jfrog.io/datastax/public-repos/"
     }
 }
 
