@@ -10,11 +10,10 @@ repositories {
     mavenCentral()
 }
 
-def sparkVersion = "1.6.2"
-def connectorVersion = "1.6.0"
+def sparkVersion = "1.4.1"
+def connectorVersion = "1.4.5"
 def scalaVersion = "2.10"
 def scalaTestVersion = "3.0.0"
-def cassandraVersion = "3.0.2"
 def jUnitVersion = "4.12"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar
@@ -43,7 +42,6 @@ dependencies {
     //Test Dependencies
     testCompile "com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion"
     testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
-    testCompile "org.apache.cassandra:cassandra-all:$cassandraVersion"
     testCompile "junit:junit:$jUnitVersion"
 }
 

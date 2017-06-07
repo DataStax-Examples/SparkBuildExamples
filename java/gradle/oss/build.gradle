@@ -10,8 +10,8 @@ repositories {
     mavenCentral()
 }
 
-def sparkVersion = "1.6.2"
-def connectorVersion = "1.6.0"
+def sparkVersion = "1.4.1"
+def connectorVersion = "1.4.5"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar
 configurations {
@@ -33,6 +33,7 @@ dependencies {
     provided "org.apache.spark:spark-sql_2.10:$sparkVersion"
     provided "org.apache.spark:spark-hive_2.10:$sparkVersion"
     provided "com.datastax.spark:spark-cassandra-connector_2.10:$connectorVersion"
+    provided "com.datastax.spark:spark-cassandra-connector-java_2.10:$connectorVersion"
 //  assembly "org.apache.commons:commons-math3:3.6.1"
 //  assembly "org.apache.commons:commons-csv:1.0"
 }
