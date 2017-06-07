@@ -3,6 +3,7 @@ package com.datastax.spark.example
 
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
+import com.datastax.spark.connector.embedded.SparkTemplate._
 import com.datastax.spark.connector.embedded.{EmbeddedCassandra, SparkTemplate}
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
@@ -28,7 +29,7 @@ class WriteReadSpec extends FlatSpec with EmbeddedCassandra with SparkTemplate w
 
   "We" should "be able to access our Embedded Cassandra Node" in {
     connector
-      .withSessionDo(session => session.execute("SELECT * FROM system_schema.tables"))
+      .withSessionDo(session => session.execute("SELECT * FROM system.schema_keyspaces"))
       .all() should not be empty
   }
 

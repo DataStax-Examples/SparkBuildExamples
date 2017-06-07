@@ -9,8 +9,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spark.version>1.6.2</spark.version>
-    <connector.version>1.6.0</connector.version>
+    <spark.version>1.4.1</spark.version>
+    <connector.version>1.4.5</connector.version>
   </properties>
 
   <!--
@@ -39,6 +39,12 @@
     <dependency>
       <groupId>com.datastax.spark</groupId>
       <artifactId>spark-cassandra-connector_2.10</artifactId>
+      <version>${connector.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.datastax.spark</groupId>
+      <artifactId>spark-cassandra-connector-java_2.10</artifactId>
       <version>${connector.version}</version>
       <scope>provided</scope>
     </dependency>
