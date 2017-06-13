@@ -36,6 +36,7 @@ fork in Test := true
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
 //libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
 
+assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 //assemblyShadeRules in assembly := Seq(
 //  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
 //)
