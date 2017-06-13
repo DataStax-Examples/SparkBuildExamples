@@ -58,11 +58,13 @@
       <groupId>com.datastax.dse</groupId>
       <artifactId>dse-java-driver-core</artifactId>
       <version>1.2.3</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.solr</groupId>
       <artifactId>solr-solrj</artifactId>
       <version>6.0.1</version>
+      <scope>provided</scope>
     </dependency>
     <!-- Test Dependencies -->
     <dependency>

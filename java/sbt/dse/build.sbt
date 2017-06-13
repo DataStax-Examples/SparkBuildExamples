@@ -19,8 +19,8 @@ libraryDependencies ++= Seq(
     ExclusionRule("com.datastax.dse", "dse-java-driver-core"),
     ExclusionRule("org.apache.solr", "solr-solrj")
   ),
-  "com.datastax.dse" % "dse-java-driver-core" % "1.2.3",
-  "org.apache.solr" % "solr-solrj" % "6.0.1"
+  "com.datastax.dse" % "dse-java-driver-core" % "1.2.3" % "provided",
+  "org.apache.solr" % "solr-solrj" % "6.0.1" % "provided"
 )
 
 //Your dependencies
@@ -32,6 +32,7 @@ assemblyMergeStrategy in assembly := {
   case x => (assemblyMergeStrategy in assembly).value(x)
 }
 
+assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 //assemblyShadeRules in assembly := Seq(
 //  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
 //)

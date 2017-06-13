@@ -51,7 +51,7 @@ run (Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead ta
 
 Task                | Command
 --------------------|------------
-build               | `gradle build`
+build               | `gradle shadowJar`
 run (Scala, Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead build/libs/writeRead-0.1-all.jar`
 
 ### Maven

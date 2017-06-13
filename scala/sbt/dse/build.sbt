@@ -30,12 +30,12 @@ val jUnitVersion = "4.12"
 val cassandraVersion = "3.2"
 
 libraryDependencies ++= Seq(
-  "com.datastax.dse" % "dse-java-driver-core" % "1.2.3",
-  "org.apache.solr" % "solr-solrj" % "6.0.1",
+  "com.datastax.dse" % "dse-java-driver-core" % "1.2.3" % "provided",
+  "org.apache.solr" % "solr-solrj" % "6.0.1" % "provided",
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
   "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
-  "junit" % "junit" % "4.12"
+  "junit" % "junit" % "4.12" % "test"
 ).map(_.excludeAll(
   ExclusionRule("org.slf4j","log4j-over-slf4j"),
   ExclusionRule("org.slf4j","slf4j-log4j12"))
@@ -53,6 +53,7 @@ assemblyMergeStrategy in assembly := {
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
 //libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
 
+assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
 //assemblyShadeRules in assembly := Seq(
 //  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
 //)
