@@ -9,11 +9,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dse.version>5.1.0</dse.version>
+    <dse.version>5.1.1</dse.version>
     <scala.version>2.11.8</scala.version>
     <scala.main.version>2.11</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
-    <connector.version>2.0.1</connector.version>
+    <connector.version>2.0.2</connector.version>
     <cassandra.version>3.2</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>
@@ -33,14 +33,6 @@
           <groupId>org.apache.cassandra</groupId>
           <artifactId>*</artifactId>
         </exclusion>
-        <exclusion>
-          <groupId>com.datastax.dse</groupId>
-          <artifactId>dse-java-driver-core</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.apache.solr</groupId>
-          <artifactId>solr-solrj</artifactId>
-        </exclusion>
       </exclusions>
     </dependency>
     <!-- Your dependencies, 'provided' are not included in jar -->
@@ -54,16 +46,7 @@
       <!--<artifactId>commons-csv</artifactId>-->
       <!--<version>1.0</version>-->
     <!--</dependency>-->
-    <dependency>
-      <groupId>com.datastax.dse</groupId>
-      <artifactId>dse-java-driver-core</artifactId>
-      <version>1.2.3</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.solr</groupId>
-      <artifactId>solr-solrj</artifactId>
-      <version>6.0.1</version>
-    </dependency>
+
     <!-- Test Dependencies -->
     <dependency>
       <groupId>com.datastax.spark</groupId>
