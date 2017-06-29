@@ -8,7 +8,7 @@ autoScalaLibrary := false
 
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "5.0.8"
+val dseVersion = "5.0.9"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // SBT 0.13.13 or greater required because of a dependency resolution bug
