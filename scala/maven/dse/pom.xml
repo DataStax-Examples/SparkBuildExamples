@@ -9,11 +9,11 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dse.version>5.1.2</dse.version>
+    <dse.version>5.1.3</dse.version>
     <scala.version>2.11.8</scala.version>
     <scala.main.version>2.11</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
-    <connector.version>2.0.3</connector.version>
+    <connector.version>2.0.5</connector.version>
     <cassandra.version>3.2</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>
