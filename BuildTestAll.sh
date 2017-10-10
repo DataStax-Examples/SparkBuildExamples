@@ -12,7 +12,7 @@ test_command () {
         echo "### Testing $1/$sys $2 ###"
         cd $start_location
         cd $1/$sys
-        $2 || { exit_value=$?; echo "### $1/$sys $2 Failed ###"; failures=$failures+"$1/$sys $2 Failed"+$'\n'; }
+        $2 || { exit_value=$?; echo "### ERROR: $1/$sys $2 Failed ###"; failures=$failures+"$1/$sys $2 Failed"+$'\n'; }
     done
 }
 
@@ -20,7 +20,7 @@ for language in "java" "scala"
 do
     echo "### Testing $language Builds### "
     echo "### Gradle ###"
-    test_command "$language/gradle" "gradle -q build"
+    test_command "$language/gradle" "gradle -q shadowJar"
     echo "### SBT ###"
     test_command "$language/sbt" "sbt --error assembly"
     echo "### Maven ###"
