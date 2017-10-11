@@ -9,21 +9,21 @@ failures=""
 test_command () {
     for sys in "dse" "oss"
     do
-        echo "### Testing $1/$sys $2 ###"
+        echo "Testing $1/$sys $2"
         cd $start_location
         cd $1/$sys
-        $2 || { exit_value=$?; echo "### ERROR: $1/$sys $2 Failed ###"; failures=$failures+"$1/$sys $2 Failed"+$'\n'; }
+        $2 || { exit_value=$?; echo "ERROR: $1/$sys $2 Failed"; failures=$failures+"$1/$sys $2 Failed"+$'\n'; }
     done
 }
 
 for language in "java" "scala"
 do
-    echo "### Testing $language Builds### "
-    echo "### Gradle ###"
+    echo "Testing $language Builds"
+    echo "Gradle"
     test_command "$language/gradle" "gradle -q shadowJar"
-    echo "### SBT ###"
-    test_command "$language/sbt" "sbt --error assembly"
-    echo "### Maven ###"
+    echo "SBT"
+    test_command "$language/sbt" "sbt -Dsbt.log.noformat=true --error assembly"
+    echo "Maven"
     test_command "$language/maven" "mvn -q package"
 done
 echo $failures
