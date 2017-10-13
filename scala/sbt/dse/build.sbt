@@ -8,19 +8,14 @@ scalaVersion := "2.11.8"
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "5.1.3-1"
+val dseVersion = "5.1.4"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // Exclusions are solely for running integrated testing
 // Warning Sbt 0.13.13 or greater is required due to a bug with dependency resolution
 libraryDependencies += (
-  "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided" excludeAll (
-      ExclusionRule("org.slf4j","slf4j-log4j12"),
-      ExclusionRule("org.mortbay.jetty"),
-      ExclusionRule("javax.servlet"),
-      ExclusionRule("org.apache.cassandra")
-    )
-  )
+  "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided"
+)
 
 // Test Dependencies
 // The 'test/resources' Directory in should match the resources directory in the `it` directory
