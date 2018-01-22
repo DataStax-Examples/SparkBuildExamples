@@ -9,7 +9,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dse.version>5.1.4</dse.version>
+    <dse.version>5.1.5</dse.version>
     <scala.version>2.11.8</scala.version>
     <scala.main.version>2.11</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
