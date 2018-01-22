@@ -29,11 +29,11 @@ configurations {
     testCompile.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
 }
 
-def dseVersion = "5.1.5"
+def dseVersion = "5.1.6"
 
 def scalaVersion = "2.11"
 def scalaTestVersion = "3.0.0"
-def connectorVersion = "2.0.5"
+def connectorVersion = "2.0.6"
 def cassandraVersion = "3.2"
 def jUnitVersion = "4.12"
 
