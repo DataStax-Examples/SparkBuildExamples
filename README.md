@@ -44,7 +44,7 @@ application's jar. All you need to do is add dependencies in the build configura
 Task         | Command
 -------------|------------
 build        | `sbt clean assembly`
-run (Scala)  | `dse spark-submit --class com.datastax.spark.example.WriteRead target/scala-2.10/writeRead-assembly-0.1.jar`
+run (Scala)  | `dse spark-submit --class com.datastax.spark.example.WriteRead target/scala-2.11/writeRead-assembly-0.1.jar`
 run (Java)   | `dse spark-submit --class com.datastax.spark.example.WriteRead target/writeRead-assembly-0.1.jar`
 
 ### Gradle
