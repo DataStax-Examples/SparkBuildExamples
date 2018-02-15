@@ -11,7 +11,7 @@ repositories {
 }
 
 def sparkVersion = "2.0.2"
-def connectorVersion = "2.0.5"
+def connectorVersion = "2.0.6"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar
 configurations {
