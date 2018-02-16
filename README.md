@@ -22,6 +22,8 @@ Please note that DSE projects templates are meant to be built with `sbt` 0.13.13
 unresolved dependencies errors, please update `sbt` and than clean `ivy` cache (with
 `rm ~/.ivy2/cache/com.datastax.dse/dse-spark-dependencies/` command)
 
+Note that currently sbt 1.x.y is not supported.
+
 ### OSS
 
 If you are planning to execute your Spark Application against Open Source Apache Spark and Open
