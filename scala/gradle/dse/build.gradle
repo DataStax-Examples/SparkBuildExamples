@@ -29,7 +29,7 @@ configurations {
     testCompile.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
 }
 
-def dseVersion = "5.1.8"
+def dseVersion = "6.0.0"
 
 def scalaVersion = "2.11"
 def scalaTestVersion = "3.0.0"
@@ -39,7 +39,9 @@ def jUnitVersion = "4.12"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 dependencies {
-    provided("com.datastax.dse:dse-spark-dependencies:$dseVersion")
+    provided("com.datastax.dse:dse-spark-dependencies:$dseVersion") {
+        exclude group: 'org.apache.directory.api'
+    }
 //  assembly "org.apache.commons:commons-math3:3.6.1"
 //  assembly "org.apache.commons:commons-csv:1.0"
 

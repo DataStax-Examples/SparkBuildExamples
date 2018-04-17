@@ -11,11 +11,12 @@ scalaVersion := "2.11.8"
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "5.1.8"
+val dseVersion = "6.0.0"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // SBT 0.13.13 or greater required because of a dependency resolution bug
-libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided"
+libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided" exclude(
+  "org.apache.directory.api", "*")
 
 //Your dependencies
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
