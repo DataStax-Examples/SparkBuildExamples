@@ -10,7 +10,7 @@ repositories {
     mavenCentral()
 }
 
-def sparkVersion = "2.0.2"
+def sparkVersion = "2.2.0"
 def connectorVersion = "2.0.7"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar

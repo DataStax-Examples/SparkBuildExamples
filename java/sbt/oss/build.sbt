@@ -8,7 +8,7 @@ autoScalaLibrary := false
 
 scalaVersion := "2.11.8"
 
-val sparkVersion = "2.0.2"
+val sparkVersion = "2.2.0"
 val connectorVersion = "2.0.7"
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
