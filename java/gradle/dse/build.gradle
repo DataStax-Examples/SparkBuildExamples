@@ -13,7 +13,7 @@ repositories {
     }
 }
 
-def dseVersion = "5.0.12"
+def dseVersion = "5.0.13"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar
 configurations {
