@@ -4,6 +4,8 @@ version := "0.1"
 
 crossPaths := false
 
+scalaVersion := "2.10.6"
+
 autoScalaLibrary := false
 
 val sparkVersion = "1.6.3"
