@@ -9,7 +9,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dse.version>6.0.0</dse.version>
+    <dse.version>6.0.1</dse.version>
     <scala.version>2.11.8</scala.version>
     <scala.main.version>2.11</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
@@ -24,12 +24,6 @@
       <artifactId>dse-spark-dependencies</artifactId>
       <version>${dse.version}</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>org.apache.directory.api</groupId>
-          <artifactId>*</artifactId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <!-- Your dependencies, 'provided' are not included in jar -->
     <!--<dependency>-->
