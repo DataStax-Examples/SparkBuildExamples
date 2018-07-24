@@ -8,7 +8,7 @@ scalaVersion := "2.11.8"
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "6.0.1"
+val dseVersion = "6.0.2"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // Exclusions are solely for running integrated testing
@@ -20,7 +20,7 @@ libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % dseVersio
 // The 'test/resources' Directory in should match the resources directory in the `it` directory
 // for the version of the Spark Cassandra Connector in use.
 val scalaTestVersion = "3.0.0"
-val connectorVersion = "2.0.7"
+val connectorVersion = "2.0.9"
 val jUnitVersion = "4.12"
 val cassandraVersion = "3.2"
 
