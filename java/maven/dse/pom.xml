@@ -9,7 +9,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <dse.version>5.1.11</dse.version>
+    <dse.version>5.1.12</dse.version>
   </properties>
 
   <dependencies>
