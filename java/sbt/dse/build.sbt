@@ -11,7 +11,7 @@ scalaVersion := "2.11.8"
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "5.1.12"
+val dseVersion = "5.1.13"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // SBT 0.13.13 or greater required because of a dependency resolution bug
