@@ -8,7 +8,7 @@ scalaVersion := "2.11.8"
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "6.7.7"
+val dseVersion = "6.8.0"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 // Exclusions are solely for running integrated testing
@@ -25,7 +25,8 @@ val jUnitVersion = "4.12"
 val cassandraVersion = "3.2"
 
 libraryDependencies ++= Seq(
-  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test",
+  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test" exclude(
+    "com.datastax.cassandra", "*"),
   "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
   "junit" % "junit" % "4.12" % "test"
