@@ -1,4 +1,4 @@
-# DEPRECIATED
+# DEPRECATED
 
 This repository has moved to https://github.com/DataStax-Examples/spark-build-examples
 
