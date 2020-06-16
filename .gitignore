@@ -1,6 +1,0 @@
-*/build
-*/target
-.gradle
-.idea
-metastore_db
-derby.log
