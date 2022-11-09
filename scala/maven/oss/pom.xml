@@ -14,7 +14,7 @@
     <spark.version>2.2.2</spark.version>
     <scalatest.version>3.0.0</scalatest.version>
     <connector.version>2.0.10</connector.version>
-    <cassandra.version>3.2</cassandra.version>
+    <cassandra.version>3.11.10</cassandra.version>
     <junit.version>4.12</junit.version>
   </properties>
 
@@ -171,6 +171,9 @@
           <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
           <junitxml>.</junitxml>
           <filereports>WDF TestSuite.txt</filereports>
+          <systemProperties>
+            <test.cassandra.version>${cassandra.version}</test.cassandra.version>
+          </systemProperties>
         </configuration>
         <executions>
           <execution>
