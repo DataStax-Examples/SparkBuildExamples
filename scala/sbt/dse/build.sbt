@@ -1,51 +1,50 @@
-
 name := "writeRead"
-
 version := "0.1"
-
 scalaVersion := "2.11.8"
 
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
 
-val dseVersion = "6.8.1"
-
 // Please make sure that following DSE version matches your DSE cluster version.
 // Exclusions are solely for running integrated testing
 // Warning Sbt 0.13.13 or greater is required due to a bug with dependency resolution
+val dseVersion = "6.8.1"
+
 libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % dseVersion % "provided" exclude(
     "org.slf4j", "log4j-over-slf4j")
 
 // Test Dependencies
 // The 'test/resources' Directory in should match the resources directory in the `it` directory
 // for the version of the Spark Cassandra Connector in use.
-val scalaTestVersion = "3.0.0"
 val connectorVersion = "2.0.10"
-val jUnitVersion = "4.12"
 val cassandraVersion = "3.11.10"
 val guavaVersion = "18.0" // required for EmbeddedCassandra based on Cassandra 3.11.x
+val scalaTestVersion = "3.0.0"
+val jUnitVersion = "4.12"
 
 libraryDependencies ++= Seq(
-  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test" exclude(
-    "com.datastax.cassandra", "*"),
+  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test"
+    exclude("com.datastax.cassandra", "*"),
   "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
-  "junit" % "junit" % "4.12" % "test",
-  "com.google.guava" % "guava" % guavaVersion % "test"
+  "junit" % "junit" % jUnitVersion % "test"
 ).map(_.excludeAll(
   ExclusionRule("org.slf4j","log4j-over-slf4j"),
   ExclusionRule("org.slf4j","slf4j-log4j12"))
 )  // Excluded to allow for Cassandra to run embedded
 
-//Forking is required for the Embedded Cassandra
+// Need to enforce certain guava version to run embedded cassandra in test
+dependencyOverrides += "com.google.guava" % "guava" % guavaVersion % "test"
+
+// Forking is required for the Embedded Cassandra
 javaOptions in Test += s"-Dtest.cassandra.version=$cassandraVersion"
 fork in Test := true
 
-//Your dependencies
-//libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
-//libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
+// Your dependencies
+// libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
+// libraryDependencies += "org.apache.commons" % "commons-csv" % "1.0"
 
 assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
-//assemblyShadeRules in assembly := Seq(
-//  ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
-//)
+// assemblyShadeRules in assembly := Seq(
+//   ShadeRule.rename("org.apache.commons.csv.**" -> "shaded.org.apache.commons.csv.@1").inAll
+// )
