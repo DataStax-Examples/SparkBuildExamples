@@ -10,7 +10,7 @@ val connectorVersion = "2.0.10"
 //for the version of the Spark Cassandra Connector in use.
 
 
-val cassandraVersion = "3.2"
+val cassandraVersion = "3.11.10"
 val scalaTestVersion = "3.0.0"
 val jUnitVersion = "4.12"
 

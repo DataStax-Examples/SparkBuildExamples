@@ -22,7 +22,7 @@ libraryDependencies += "com.datastax.dse" % "dse-spark-dependencies" % dseVersio
 val scalaTestVersion = "3.0.0"
 val connectorVersion = "2.0.10"
 val jUnitVersion = "4.12"
-val cassandraVersion = "3.2"
+val cassandraVersion = "3.11.10"
 
 libraryDependencies ++= Seq(
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test" exclude(
