@@ -23,13 +23,15 @@ val scalaTestVersion = "3.0.0"
 val connectorVersion = "2.0.10"
 val jUnitVersion = "4.12"
 val cassandraVersion = "3.11.10"
+val guavaVersion = "18.0" // required for EmbeddedCassandra based on Cassandra 3.11.x
 
 libraryDependencies ++= Seq(
   "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test" exclude(
     "com.datastax.cassandra", "*"),
   "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
   "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
-  "junit" % "junit" % "4.12" % "test"
+  "junit" % "junit" % "4.12" % "test",
+  "com.google.guava" % "guava" % guavaVersion % "test"
 ).map(_.excludeAll(
   ExclusionRule("org.slf4j","log4j-over-slf4j"),
   ExclusionRule("org.slf4j","slf4j-log4j12"))
