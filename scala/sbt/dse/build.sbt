@@ -36,8 +36,8 @@ libraryDependencies ++= Seq(
 )  // Excluded to allow for Cassandra to run embedded
 
 //Forking is required for the Embedded Cassandra
+javaOptions in Test += s"-Dtest.cassandra.version=$cassandraVersion"
 fork in Test := true
-
 
 //Your dependencies
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"
