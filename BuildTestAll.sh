@@ -20,7 +20,7 @@ for language in "java" "scala"
 do
     echo "Testing $language Builds"
     echo "Gradle"
-    test_command "$language/gradle" "gradle -q shadowJar"
+    test_command "$language/gradle" "./gradlew -q shadowJar"
     echo "SBT"
     test_command "$language/sbt" "sbt -Dsbt.log.noformat=true --error assembly"
     echo "Maven"
