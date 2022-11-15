@@ -13,9 +13,6 @@ repositories {
 def sparkVersion = "2.2.2"
 def connectorVersion = "2.0.10"
 def scalaVersion = "2.11"
-def scalaTestVersion = "3.0.0"
-def cassandraVersion = "3.2"
-def jUnitVersion = "4.12"
 
 // The assembly configuration will cause jar to be included in assembled fat-jar
 configurations {
@@ -39,16 +36,6 @@ dependencies {
     provided "com.datastax.spark:spark-cassandra-connector_$scalaVersion:$connectorVersion"
 //  assembly "org.apache.commons:commons-math3:3.6.1"
 //  assembly "org.apache.commons:commons-csv:1.0"
-
-    //Test Dependencies
-    testCompile ("com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion") {
-        exclude group: 'com.datastax.cassandra', module: 'cassandra-driver-core'
-    }
-    testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
-    testCompile("org.apache.cassandra:cassandra-all:$cassandraVersion") {
-        exclude group: 'org.slf4j', module: 'log4j-over-slf4j'  // Excluded to allow for Cassandra to run embedded
-    }
-    testCompile "junit:junit:$jUnitVersion"
 }
 
 shadowJar {
