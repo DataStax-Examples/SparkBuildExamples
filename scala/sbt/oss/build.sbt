@@ -1,19 +1,10 @@
 name := "writeRead"
-
 version := "0.1"
 
 scalaVersion := "2.11.8"
 
 val sparkVersion = "2.2.2"
 val connectorVersion = "2.0.10"
-//The 'test/resources' Directory in  should match the resources directory in the `it` directory
-//for the version of the Spark Cassandra Connector in use.
-
-
-val cassandraVersion = "3.2"
-val scalaTestVersion = "3.0.0"
-val jUnitVersion = "4.12"
-
 
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
 // Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
@@ -21,18 +12,8 @@ libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-sql" % sparkVersion % "provided",
   "org.apache.spark" %% "spark-hive" % sparkVersion % "provided",
-  "com.datastax.spark" %% "spark-cassandra-connector" % connectorVersion % "provided",
-
-  //Test Dependencies
-  "com.datastax.spark" %% "spark-cassandra-connector-embedded" % connectorVersion % "test"
-    exclude("com.datastax.cassandra", "cassandra-driver-core"),
-  "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
-  "org.apache.cassandra" % "cassandra-all" % cassandraVersion % "test",
-  "junit" % "junit" % jUnitVersion % "test"
-).map(_.exclude("org.slf4j", "log4j-over-slf4j"))  // Excluded to allow for Cassandra to run embedded
-
-//Forking is required for the Embedded Cassandra
-fork in Test := true
+  "com.datastax.spark" %% "spark-cassandra-connector" % connectorVersion % "provided"
+)
 
 //Your dependencies
 //libraryDependencies += "org.apache.commons" % "commons-math3" % "3.6.1"

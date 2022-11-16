@@ -14,7 +14,6 @@ repositories {
     }
 }
 
-
 // The assembly configuration will cause jar to be included in assembled fat-jar
 configurations {
     assembly
@@ -31,23 +30,11 @@ configurations {
 
 def dseVersion = "6.8.1"
 
-def scalaVersion = "2.11"
-def scalaTestVersion = "3.0.0"
-def connectorVersion = "2.0.10"
-def cassandraVersion = "3.2"
-def jUnitVersion = "4.12"
-
 // Please make sure that following DSE version matches your DSE cluster version.
 dependencies {
     provided("com.datastax.dse:dse-spark-dependencies:$dseVersion")
 //  assembly "org.apache.commons:commons-math3:3.6.1"
 //  assembly "org.apache.commons:commons-csv:1.0"
-
-    // Test Dependencies
-    testCompile "com.datastax.spark:spark-cassandra-connector-embedded_$scalaVersion:$connectorVersion"
-    testCompile "org.scalatest:scalatest_$scalaVersion:$scalaTestVersion"
-    testCompile "org.apache.cassandra:cassandra-all:$cassandraVersion"
-    testCompile "junit:junit:$jUnitVersion"
 }
 
 shadowJar {
