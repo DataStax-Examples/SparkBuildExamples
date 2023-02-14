@@ -28,7 +28,7 @@ configurations {
     testCompile.exclude group: 'org.slf4j', module: 'log4j-over-slf4j'
 }
 
-def dseVersion = "6.8.1"
+def dseVersion = "6.8.35"
 
 // Please make sure that following DSE version matches your DSE cluster version.
 dependencies {
