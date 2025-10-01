@@ -5,7 +5,7 @@ crossPaths := false
 
 autoScalaLibrary := false
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
 val sparkVersion = "2.2.2"
 val connectorVersion = "2.0.10"

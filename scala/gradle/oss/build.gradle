@@ -1,6 +1,6 @@
 plugins {
     id "scala"
-    id "com.github.johnrengelman.shadow" version "1.2.3"
+    id "com.github.johnrengelman.shadow" version "5.2.0"
 }
 
 group 'com.datastax.spark.example'
@@ -30,6 +30,7 @@ configurations {
 // Please make sure that following dependencies have versions corresponding to the ones in your cluster.
 // Note that spark-cassandra-connector should be provided with '--packages' flag to spark-submit command.
 dependencies {
+    compile 'org.scala-lang:scala-library:2.11.12'
     provided "org.apache.spark:spark-core_$scalaVersion:$sparkVersion"
     provided "org.apache.spark:spark-sql_$scalaVersion:$sparkVersion"
     provided "org.apache.spark:spark-hive_$scalaVersion:$sparkVersion"

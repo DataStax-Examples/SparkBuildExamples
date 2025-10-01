@@ -5,7 +5,7 @@ crossPaths := false
 
 autoScalaLibrary := false
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.11.12"
 
 resolvers += Resolver.mavenLocal // for testing
 resolvers += "DataStax Repo" at "https://repo.datastax.com/public-repos/"
